@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Lenovo
+ */
+public class Anume1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        //metode bisection untuk 9x^2 - 9x - 9
+        Scanner in = new Scanner(System.in);
+        System.out.println("f(x) = 9x^2 - 9x - 9 dengan perhitungan metode bisection");
+        ///////////
+        double xa,xb,xc,iter;
+        System.out.print("batas a = " );
+        xa = in.nextInt();
+        
+        System.out.print("batas b = " );
+        xb = in.nextInt();
+        
+        System.out.print("batas iterasi = ");
+        iter = in.nextInt();
+        ////////////
+        double fxa,fxb,fxc =0;
+        for(int i = 0;i< iter; i++){
+            fxa = 9*Math.pow(xa, 2) - 9*xa - 9;
+            fxb = 9*Math.pow(xb, 2) - 9*xb - 9;
+            xc = (xa + xb)/2;
+            fxc = 9*Math.pow(xc, 2) - 9*xc - 9;
+            System.out.println("iterasi ke -"+ (i+1) );
+            System.out.print("batas a = " + xa + ", f(a) = "+ fxa+ "\n");
+            System.out.print("batas b = " + xb + ", f(b) = "+ fxb+ "\n");
+            System.out.print("batas c = " + xc + ", f(c) = "+ fxc + "\n");
+            if(fxa*fxc < 0){
+                xb = xc;
+            }else{
+                xa = xc;
+            }
+        }
+        System.out.println("jadi akarnya = " + fxc);
+    }
+}
